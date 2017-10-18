@@ -18,12 +18,12 @@ class I386ElfGcc < Formula
 
     ENV['CC'] = '/usr/local/opt/gcc/bin/gcc-7'
     ENV['CXX'] = '/usr/local/opt/gcc/bin/g++-7'
-    ENV['CPP'] = '/usr/local/opt/gcc/bin/g++-7'
+    ENV['CPP'] = '/usr/local/opt/gcc/bin/cpp-7'
     ENV['LD'] = '/usr/local/opt/gcc/bin/gcc-7'
     ENV['PATH'] += ":#{binutils.prefix/"bin"}"
 
     mkdir 'build' do
-      system '../configure', '--disable-nls', '--target=i586-elf',
+      system '../configure', '--disable-nls', '--target=i386-elf',
                              '--disable-werror',
                              "--prefix=#{prefix}",
                              "--enable-languages=c,c++",
