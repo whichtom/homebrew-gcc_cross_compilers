@@ -9,11 +9,11 @@ class I586ElfBinutils < Formula
   def install
     ENV['CC'] = '/usr/local/opt/gcc/bin/gcc-7'
     ENV['CXX'] = '/usr/local/opt/gcc/bin/g++-7'
-    ENV['CPP'] = '/usr/local/opt/gcc/bin/cpp-7'
+    ENV['CPP'] = '/usr/local/opt/gcc/bin/g++-7'
     ENV['LD'] = '/usr/local/opt/gcc/bin/gcc-7'
 
     mkdir 'build' do
-      system '../configure', '--disable-nls', '--target=x86_64-elf','--disable-werror',
+      system '../configure', '--disable-nls', '--target=i386-elf','--disable-werror',
                              '--enable-gold=yes',
                              "--prefix=#{prefix}"
       system 'make all'
