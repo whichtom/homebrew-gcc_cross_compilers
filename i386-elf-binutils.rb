@@ -9,7 +9,7 @@ class I386ElfBinutils < Formula
   def install
     ENV['CC'] = '/usr/local/opt/gcc/bin/gcc-7'
     ENV['CXX'] = '/usr/local/opt/gcc/bin/g++-7'
-    ENV['CPP'] = '/usr/local/opt/gcc/bin/g++-7 -E'
+    ENV['CPP'] = '/usr/local/opt/gcc/bin/g++-7'
     ENV['LD'] = '/usr/local/opt/gcc/bin/gcc-7'
 
     mkdir 'build' do
