@@ -1,6 +1,6 @@
 require 'formula'
 
-class I586ElfGcc < Formula
+class I386ElfGcc < Formula
   homepage 'http://gcc.gnu.org'
   url "http://mirror.tochlab.net/pub/gnu/gcc/gcc-7.1.0/gcc-7.1.0.tar.bz2"
   mirror "https://ftp.gnu.org/gnu/gcc/gcc-7.1.0/gcc-7.1.0.tar.bz2"
@@ -10,15 +10,15 @@ class I586ElfGcc < Formula
   depends_on "libmpc"
   depends_on "mpfr"
   depends_on "isl"
-  depends_on 'i586-elf-binutils'
+  depends_on 'i386-elf-binutils'
 
   def install
-    binutils = Formulary.factory 'i586-elf-binutils'
+    binutils = Formulary.factory 'i386-elf-binutils'
 
 
     ENV['CC'] = '/usr/local/opt/gcc/bin/gcc-7'
     ENV['CXX'] = '/usr/local/opt/gcc/bin/g++-7'
-    ENV['CPP'] = '/usr/local/opt/gcc/bin/cpp-7'
+    ENV['CPP'] = '/usr/local/opt/gcc/bin/g++-7'
     ENV['LD'] = '/usr/local/opt/gcc/bin/gcc-7'
     ENV['PATH'] += ":#{binutils.prefix/"bin"}"
 
@@ -33,7 +33,7 @@ class I586ElfGcc < Formula
                              "--with-mpc=#{Formula["libmpc"].opt_prefix}"
       system 'make all-gcc'
       system 'make install-gcc'
-      FileUtils.ln_sf binutils.prefix/"i586-elf", prefix/"i586-elf"
+      FileUtils.ln_sf binutils.prefix/"i386-elf", prefix/"i386-elf"
       system 'make all-target-libgcc'
       system 'make install-target-libgcc'
       FileUtils.rm_rf share/"man"/"man7"
