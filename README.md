@@ -1,6 +1,10 @@
 GCC Cross Compilers for OS X
 ============================
 
+# To do
+- i386-jos-elf.binutils/gcc/gdb support (grab from [here?](https://github.com/zihao-fan/homebrew-gcc_cross_compilers))
+
+
 # Changelog
 - binutils-2.27 -> binutils-2.34
 - gdb-7.11.1 -> gdb-9.1
