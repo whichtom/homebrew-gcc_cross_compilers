@@ -2,8 +2,8 @@ require 'formula'
 
 class I386ElfBinutils < Formula
   homepage 'http://gcc.gnu.org'
-  url 'http://ftp.gnu.org/gnu/binutils/binutils-2.27.tar.gz'
-  sha256 '26253bf0f360ceeba1d9ab6965c57c6a48a01a8343382130d1ed47c468a3094f'
+  url 'https://ftp.gnu.org/gnu/binutils/binutils-2.34.tar.gz'
+  sha256 '53537d334820be13eeb8acb326d01c7c81418772d626715c7ae927a7d401cab3'
 
   depends_on 'gcc' => :build
   def install
