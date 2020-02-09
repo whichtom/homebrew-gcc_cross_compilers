@@ -2,7 +2,8 @@ GCC Cross Compilers for OS X
 ============================
 
 # Changelog
-- binutils 2.27 -> 2.34
+- binutils-2.27 -> binutils-2.34
+- gdb-7.11.1 -> gdb-9.1
 - gcc-7 -> gcc-9
 - cpp-7 -> cpp-9
 - g++-7 -> g++-9
