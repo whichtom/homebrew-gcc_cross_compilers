@@ -2,9 +2,9 @@ require 'formula'
 
 class I386ElfGcc < Formula
   homepage 'http://gcc.gnu.org'
-  url "http://mirror.tochlab.net/pub/gnu/gcc/gcc-7.1.0/gcc-7.1.0.tar.bz2"
-  mirror "https://ftp.gnu.org/gnu/gcc/gcc-7.1.0/gcc-7.1.0.tar.bz2"
-  sha256 "8a8136c235f64c6fef69cac0d73a46a1a09bb250776a050aec8f9fc880bebc17"
+  url 'ftp://ftp.mirrorservice.org/sites/sourceware.org/pub/gcc/releases/gcc-9.2.0/gcc-9.2.0.tar.gz'
+  mirror 'https://ftp.gnu.org/gnu/gcc/gcc-9.2.0/gcc-9.2.0.tar.gz'
+  sha256 'a931a750d6feadacbeecb321d73925cd5ebb6dfa7eff0802984af3aef63759f4'
 
   depends_on "gmp"
   depends_on "libmpc"
@@ -16,10 +16,10 @@ class I386ElfGcc < Formula
     binutils = Formulary.factory 'i386-elf-binutils'
 
 
-    ENV['CC'] = '/usr/local/opt/gcc/bin/gcc-7'
-    ENV['CXX'] = '/usr/local/opt/gcc/bin/g++-7'
-    ENV['CPP'] = '/usr/local/opt/gcc/bin/cpp-7'
-    ENV['LD'] = '/usr/local/opt/gcc/bin/gcc-7'
+    ENV['CC'] = '/usr/local/opt/gcc/bin/gcc-9'
+    ENV['CXX'] = '/usr/local/opt/gcc/bin/g++-9'
+    ENV['CPP'] = '/usr/local/opt/gcc/bin/cpp-9'
+    ENV['LD'] = '/usr/local/opt/gcc/bin/gcc-9'
     ENV['PATH'] += ":#{binutils.prefix/"bin"}"
 
     mkdir 'build' do
