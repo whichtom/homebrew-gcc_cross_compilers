@@ -1,27 +1,17 @@
-GCC Cross Compilers for OS X
+GCC Cross Compilers for macOS
 ============================
 
-# To do
-- i386-jos-elf.binutils/gcc/gdb support (grab from [here?](https://github.com/zihao-fan/homebrew-gcc_cross_compilers))
-
-
-# Changelog
-- binutils-2.27 -> binutils-2.34
-- gdb-7.11.1 -> gdb-9.1
-- gcc-7 -> gcc-9
-- cpp-7 -> cpp-9
-- g++-7 -> g++-9
-
-Just
-
+Usage:
 ```
-brew tap whichtom/homebrew-gcc_cross_compilers
-brew install --debug i386-elf-gcc
+$ brew tap whichtom/homebrew-gcc_cross_compilers
 ```
-for `i386-elf-g++`
+then just `brew install` whichever you want like
+```
+$ brew install i386-elf-gcc
+```
 
+This fork should fix the problems of the SHA256 checksum mismatch and if the C compiler cannot create an executable in the case below:
 
-This fixes the problem of
 ```
 configure:4121: checking for gcc
 configure:4148: result: /usr/local/opt/gcc/bin/gcc-7
@@ -64,3 +54,17 @@ configure:4486: error: in `/private/tmp/i386-elf-binutils-20200209-50116-1gmtyr/
 configure:4490: error: C compiler cannot create executables
 See `config.log' for more details.
 ```
+
+If for whatever reason you still have a SHA256 checksum mismatch, just swap out the values for the correct one.
+
+
+# Changelog
+- binutils-2.27 -> binutils-2.34
+- gdb-7.11.1 -> gdb-9.1
+- gcc-7 -> gcc-9
+- cpp-7 -> cpp-9
+- g++-7 -> g++-9
+- i386-jos-elf-gcc/gdb/binutils
+
+
+
