@@ -12,31 +12,24 @@ class I386JosElfGcc < Formula
   depends_on "isl"
   depends_on 'i386-jos-elf-binutils'
 
+  patch :DATA
+
   def install
-    binutils = Formulary.factory 'i386-jos-elf-binutils'
-
-
-    ENV['CC'] = '/usr/local/opt/gcc/bin/gcc-9'
-    ENV['CXX'] = '/usr/local/opt/gcc/bin/g++-9'
-    ENV['CPP'] = '/usr/local/opt/gcc/bin/cpp-9'
-    ENV['LD'] = '/usr/local/opt/gcc/bin/gcc-9'
-    ENV['PATH'] += ":#{binutils.prefix/"bin"}"
-
     mkdir 'build' do
       system '../configure', '--disable-nls', '--target=i386-jos-elf',
                              '--disable-werror',
                              "--prefix=#{prefix}",
                              "--enable-languages=c,c++",
                              "--without-headers",
-                             "--with-gmp=#{Formula["gmp"].opt_prefix}",
-                             "--with-mpfr=#{Formula["mpfr"].opt_prefix}",
-                             "--with-mpc=#{Formula["libmpc"].opt_prefix}"
+                             "--disable-libssp",
+                             "--disable-libmudflap",
+                             "--with-newlib",
+                             "--with-as=#{Formula["i386-jos-elf-binutils"].opt_prefix}/bin/i386-jos-elf-as",
+                            "--with-ld=#{Formula["i386-jos-elf-binutils"].opt_prefix}/bin/i386-jos-elf-ld"
       system 'make all-gcc'
       system 'make install-gcc'
-      FileUtils.ln_sf binutils.prefix/"i386-jos-elf", prefix/"i386-jos-elf"
       system 'make all-target-libgcc'
       system 'make install-target-libgcc'
-      FileUtils.rm_rf share/"man"/"man7"
     end
   end
 end
