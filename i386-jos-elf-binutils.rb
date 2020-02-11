@@ -15,7 +15,6 @@ class I386JosElfBinutils < Formula
 
       if Formula['i386-jos-elf-gdb'].installed?
         rm_r share/"info"
-        rm_r lib
       end
     end
   end
