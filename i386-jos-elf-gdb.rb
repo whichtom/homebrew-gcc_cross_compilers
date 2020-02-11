@@ -9,14 +9,17 @@ class I386JosElfGdb < Formula
   depends_on 'i386-jos-elf-gcc'
 
   def install
-    system './configure', '--target=i386-jos-elf', "--prefix=#{prefix}", "--disable-werror",
+    mkdir 'build' do
+      system '../configure', '--target=i386-jos-elf', "--prefix=#{prefix}", "--disable-werror",
                           "--disable-nls"
-    system 'make'
-    system 'make install'
+      system 'make'
+      system 'make install'
+      FileUtils.rm_rf share/"locale"
 
-    if Formula['i386-jos-elf-binutils'].installed?
-      rm_r share/"info"
-      rm_r lib
+      if Formula['i386-jos-elf-binutils'].installed?
+        rm_r share/"info"
+        rm_r lib
+      end
     end
   end
 end
